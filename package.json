@@ -1,0 +1,57 @@
+{
+  "name": "clipradar",
+  "productName": "ClipRadar",
+  "version": "1.1.0",
+  "description": "Watches your favourite podcast channels on YouTube and pings your phone on Telegram the moment a new episode drops.",
+  "main": "src/main/main.js",
+  "private": true,
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "electron .",
+    "pack:win": "electron-builder --win --x64 --dir",
+    "dist:win": "electron-builder --win nsis --x64"
+  },
+  "devDependencies": {
+    "electron": "^45.1.0",
+    "electron-builder": "^26.0.0"
+  },
+  "build": {
+    "appId": "com.clipradar.desktop",
+    "productName": "ClipRadar",
+    "copyright": "Copyright © 2026 ClipRadar",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "src/**/*",
+      "assets/**/*",
+      "package.json"
+    ],
+    "asar": true,
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "assets/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "ClipRadar",
+      "uninstallDisplayName": "ClipRadar",
+      "deleteAppDataOnUninstall": false,
+      "artifactName": "ClipRadar-Setup-${version}.${ext}"
+    }
+  }
+}

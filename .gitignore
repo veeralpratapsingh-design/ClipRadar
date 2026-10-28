@@ -1,0 +1,27 @@
+# Dependencies and build output
+node_modules/
+dist/
+out/
+
+# Secrets and local config
+.env
+.env.*
+!.env.example
+*.pfx
+*.p12
+*.pem
+*.key
+
+# Local app data (ClipRadar stores this in %APPDATA%, but just in case)
+clipradar-data.json*
+
+# Logs and caches
+*.log
+npm-debug.log*
+.cache/
+
+# OS / editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
